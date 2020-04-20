@@ -27,7 +27,10 @@
       <button class="btn btn-primary" type="submit" :disabled="!canCreateCard">Создать</button>
     </form>
 
-    <div v-if="contacts.length">
+    <div v-if="loading">
+      <loader />
+    </div>
+    <div v-else-if="contacts.length">
       <div class="card mb-3" v-for="contact in contacts">
         <div class="card-body">
           <h5 class="card-title" :style="{color: contact.marked ? 'tomato' : ''}">{{ contact.name }}</h5>
